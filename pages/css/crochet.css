@@ -1,0 +1,57 @@
+.logo {
+width: 45vw;
+border-radius: 30vw;
+}
+.logo-friend {
+    float: right;
+    font-size: 5vw;
+    font-family:cursive;
+    padding: 8vw 4vw .5vw .5vw;
+}
+.sticky-section {
+    overflow: hidden;
+    background-color: #f58fc4;
+    width: 100%;
+    color: black;
+    position: sticky;
+    top: 0px;
+}
+:link {
+    color: black;
+    text-decoration: none;
+}
+:visited {
+    color: black;
+}
+nav :hover {
+    color: #eeeeee;
+}
+nav :active {
+    color: #8c0091;
+}
+nav a {
+    color: black;
+    display: inline-block;
+    text-align: center;
+    font-size: 2vw;
+    padding: 1vw 5vw 1vw 6vw;
+    text-decoration: none;
+    transition: all 0.5s ease 0s;
+}
+.help-button {
+    display: block;
+    position: fixed;
+    right: 1vw;
+    bottom: 1vw;
+    height: 15vw;
+    width: 15vw;
+    background-color: #f58fc4;
+    border-radius: 50%;
+    float: right;
+}
+.help-button img {
+    position: fixed;
+    right: .45vw;
+    bottom: .10vw;
+    width: 16vw;
+}

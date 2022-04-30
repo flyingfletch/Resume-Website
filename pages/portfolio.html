@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Jessica Fletcher Portfolio</title>
     </head>
     <body>
         <header>
-            <h1>Jessica Fletcher</h1>
+            <h1>Jessica<br>Fletcher</h1>
+            <nav class="header">
+                        <a href="index.html" title="Resume Home">Home</a>
+                        <a href="skills.html" title="Skills">Skills</a>
+                        <a href="portfolio.html" title="Resume Portfolio">Portfolio</a>
+                        <a href="about.html" title="About Jessica">About</a>
+            </nav>
+            <img src="../images/headshot.jpg" alt="Headshot of Jessica Fletcher">
         </header>
-        <nav>
-            <a href="index.html" title="Resume Home">Home</a>
-            <a href="skills.html" title="Skills">Skills</a>
-            <a href="portfolio.html" title="Resume Portfolio">Portfolio</a>
-            <a href="about.html" title="About Jessica">About</a>
-        </nav>
-        <aside>
-            <img src="../images/headshot.jpg" alt="Headshot of Jessica Fletcher" height="300">
-        </aside>
         <article>
             <section>
-                <h2>Project Portfolio</h2>
-                <table>
+                <h2>Website Project Portfolio</h2>
+                    <p>Click on website name to view:</p>
+                    <ul>
+                        <li class="square-style-list">
+                            <a href="crochet.html" target="_blank">Lil Fletchlings</a>
+                        </li>
+                    </ul>
+            </section>
+            <section>
+                <h2>Crochet Project Portfolio</h2>
+                <table class="portfolio">
                     <tr>
                         <th>Billy Loomis</th>
                         <th>Spider Man</th>
@@ -65,5 +73,13 @@
                 </table>  
             </section>
         </article>
+        <footer>
+            <nav>
+                <a href="index.html" title="Resume Home">Home</a>
+                <a href="skills.html" title="Skills">Skills</a>
+                <a href="portfolio.html" title="Resume Portfolio">Portfolio</a>
+                <a href="about.html" title="About Jessica">About</a>
+            </nav>
+        </footer>
     </body>
 </html>

@@ -1,0 +1,131 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+body {
+    background-color: #eeeeee;
+    background-image: url("../../images/rainbowbackground.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+header {
+    height: 10%;
+    margin-top: 2%;
+}
+h1, .header {
+    float: right;
+    min-width: 70%;
+    max-width: 60px;
+    text-align: center;
+    margin-right: 2%;
+}
+h1 {
+    font-size: 6vw;
+    border-top-right-radius: 2em;
+    background-color: #b4fab0;
+    color: #20391e;
+}
+:link {
+    color: #20391e;
+    text-decoration: none;
+}
+:visited {
+    color: #20391e;
+}
+nav :hover {
+    color: #FF47D1;
+}
+nav :active {
+    color: #eeeeee;
+}
+nav {
+    background-color: #b4fab0;
+    border-radius: 2em;
+    font-size: 3vw;
+    color: #20391e;
+}
+nav a {
+    color: #20391e;
+}
+header img {
+    border-radius: 10%;
+    width: 25%;
+    height: auto;
+    margin-left: 2%;
+}
+article {
+    background-color: #eeeeee;
+    border-top-right-radius: 3em;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+h2 {
+    background-color: #b4fab0;
+    color: #20391e;
+    border-top-right-radius: 2em;
+    padding-left: 2%;
+}
+p, dl {
+    padding: 0% 2% 2% 2%;
+}
+form div {
+    padding: 1% 1% 1% 1%;
+}
+.square-style-list {
+    list-style:square;
+    color: black;
+}
+.form-label {
+    background-color: #c4e5c1;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-style: groove;
+}
+textarea {
+    width: 75vw;
+    height: 20vw;
+    border-style: dashed;
+    border-top-right-radius: 1em;
+}
+button {
+    font-size: 1em;
+    border-radius: 1em;
+    background-color: #20391e;
+    color:#eeeeee;
+}
+.portfolio {
+    width: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+table img {
+    width: 20vw;
+    height: auto;
+}
+.references {
+    width: 100%;
+    padding: 1% 2% 1% 2%;
+    border: 0;
+    margin: 0;
+    text-align: center;
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+.references th {
+    text-decoration: underline;
+}
+footer {
+    text-align: center;
+    position: static;
+    width: 100%;
+    right: 20vw;
+    bottom: 1vw;
+    left: 20vw;
+}

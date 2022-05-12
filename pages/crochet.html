@@ -61,11 +61,17 @@
             </section>
         </article>
         <footer>
-            <button class="help-button">
-                <a href="../images/fletchling.png">
+            <button class="help-button" onclick="nameInput()">
                     <img src="../images/fletchling.png" alt="Click Here for Help">
-                </a>
             </button>
         </footer>
+        <script>
+            function nameInput() {
+                let person = prompt("Please enter your name", "Blush Weaver");
+                if (person != null) {
+                    alert("Hello " + person + "! Thank you for visiting my site!");
+                }
+            }
+        </script>
     </body>
 </html>

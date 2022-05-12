@@ -7,3 +7,9 @@
     background-repeat: no-repeat;
     background-attachment: scroll;
 }
+
+#helpbutton {
+    position: fixed;
+    right: 3vw;
+    bottom: 3vh;
+}

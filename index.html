@@ -37,6 +37,7 @@
                                 <li><a class="dropdown-item" href="/pages/about.html" target="_blank">References & Interests</a></li>
                             </ul>
                         </li>
+                        <button class="rounded-pill btn-outline-dark small" onclick="nameInput()">Who are you?!</button>
                     </ul>
                 </div>
             </div>
@@ -84,6 +85,7 @@
                 </div>
                 <!-- Portfolio Items Row Start -->
                 <div class="row row-cols-1 row-cols-md-2 row-col-lg-3">
+                    
                     <!-- Portfolio Item1 -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
@@ -99,7 +101,8 @@
                         </div>
                     </div>
                     <!-- Portfolio Item1 End -->
-                     <!-- Portfolio Item2 -->
+                    
+                    <!-- Portfolio Item2 -->
                      <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
                             <img class="card-img-top" src="/images/loldoll.jpg" alt="Crochet Doll Princess" style="object-fit:cover; height:20em;">
@@ -114,6 +117,7 @@
                         </div>
                     </div>
                     <!-- Portfolio Item2 End -->
+                    
                     <!-- Portfolio Item3 -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
@@ -129,6 +133,7 @@
                         </div>
                     </div>
                     <!-- Portfolio Item3 End -->
+                    
                     <!-- Portfolio Item4 -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
@@ -203,11 +208,11 @@
         <section class="bg-dark">
             <h3 class="text-white font-weight-bold p-2">Relax with nature:</h3>
                 <hr class="bg-white mb-3">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -221,33 +226,96 @@
                 </div>
                 </div>
             </div>
-            
-            <!-- Help Button -->
-            <button class="rounded-circle" id="helpbutton" onclick="nameInput()">
-                <img src="/images/fletchlinghelpbutton.png" alt="Help Button" height="70vw">
-            </button>
         </section>
         
+        <!-- Help Button -->
+            <button type="button" class=" btn rounded-circle shadow" id="helpbutton" data-bs-toggle="modal" data-bs-target="#helpModal">
+                <img src="/images/fletchlinghelpbutton.png" alt="Help Button" height="70vw">
+            </button>
+
+        <!-- Help Modal -->
+        <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="helpModalLabel">Welcome!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="dayModal"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer -->
         <footer class="text-center text-lg-start bg-light text-muted absolute-bottom">
             <!-- Copyright -->
             <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                © 2022 Copyright:
+                © 2022 Copyright - Jessica Fletcher:
                 <a href="#">Home</a>
                 <a href="/pages/index.html" target="_blank">Resume</a>
                 <a href="#contact">Contact</a>
             </div>
         </footer>
         
-        <!-- JavaScript -->
+        <!-- JavaScript for Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- Personal JavaScript -->
         <script>
+            // Name Greeting for the "Who are you?!" button in the Navbar.
             function nameInput() {
-                let person = prompt("Please enter your name", "Blush Weaver");
-                if (person != null) {
-                    alert("Hello " + person + "! Thank you for visiting my site!");
-                }
+                let person = prompt("Please enter your name");
+                var welcome;
+                    var date = new Date();
+                    var hour = date.getHours();
+                    if (hour >5 && hour < 12) {  
+                        welcome = "Good morning ";  
+                    } 
+                    else if (hour >=12 && hour < 18) {  
+                        welcome = "Good afternoon ";  
+                    } 
+                    else if (hour >=18 && hour < 22) {  
+                        welcome = "Good evening ";  
+                    } 
+                    else {
+                        welcome = "Hello Child of Darkness ";
+                    }
+                alert(welcome + person + "! Thank you for visiting my site!");
             }
+
+            // Switch Statement for Day of the Week- Placed in Help Modal
+            var day;
+            var extraday;
+            switch (new Date().getDay()) {
+                case 0:
+                    day = "Sunday.";
+                    extraday = " Oh how I love second Saturday!";
+                    break;
+                case 1: 
+                    day = "Monday.";
+                    extraday = " Back to work!";
+                    break;
+                case 2: 
+                    day = "Tuesday.";
+                    extraday = " Twoooooosday!";
+                    break;
+                case 3: 
+                    day = "Wednesday.";
+                    extraday = " Hump day baby!";
+                    break;
+                case 4:
+                    day = "Thursday.";
+                    extraday = " Hang on for another day!";
+                    break;
+                case 5:
+                    day = "Friday.";
+                    extraday = " Thank goodness it is Friday!";
+                case 6: 
+                    day = "Saturday.";
+                    extraday = " Time for a nap!";
+            }
+            document.getElementById("dayModal").innerHTML = "Today is " + day + extraday;
         </script>
     </body>
 </html>

@@ -252,7 +252,7 @@
         <footer class="text-center text-lg-start bg-light text-muted absolute-bottom">
             <!-- Copyright -->
             <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                © 2022 Copyright - Jessica Fletcher:
+                © <span id="copyrightyear"></span> Copyright - Jessica Fletcher:
                 <a href="#">Home</a>
                 <a href="/pages/index.html" target="_blank">Resume</a>
                 <a href="#contact">Contact</a>
@@ -269,7 +269,7 @@
                 var welcome;
                     var date = new Date();
                     var hour = date.getHours();
-                    if (hour >5 && hour < 12) {  
+                    if (hour >=5 && hour < 12) {  
                         welcome = "Good morning ";  
                     } 
                     else if (hour >=12 && hour < 18) {  
@@ -306,7 +306,7 @@
                     break;
                 case 4:
                     day = "Thursday.";
-                    extraday = " Hang on for another day!";
+                    extraday = " Worst day of the week!";
                     break;
                 case 5:
                     day = "Friday.";
@@ -316,6 +316,11 @@
                     extraday = " Time for a nap!";
             }
             document.getElementById("dayModal").innerHTML = "Today is " + day + extraday;
+            
+            // Keep Copyright in footer as current year.
+            let copyrightyear = new Date().getFullYear()
+            document.getElementById("copyrightyear").innerHTML = copyrightyear;
+            
         </script>
     </body>
 </html>

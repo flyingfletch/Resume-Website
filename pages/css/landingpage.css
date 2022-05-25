@@ -9,10 +9,9 @@
 }
 
 #references {
-    width: 100%;
+    width: 100vw;
     text-align: center;
-    display: block;
-    overflow-x: scroll;
+    overflow-x: auto;
     white-space: nowrap;
 }
 

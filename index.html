@@ -313,6 +313,7 @@
             }
 
             // For Loop References
+                // Set up Person Objects
             var person = [
                 {name: "Carla Pratt", position: "Business Owner", relationship: "Manager", email: "carla@prattlandmusic.com"},
                 {name: "Robin Brunner", position: "Computer Science Teacher", relationship: "Co-worker", email: "rbrunner@alpinedistrict.org"},
@@ -322,12 +323,11 @@
             function refTable(data){
                 var table = document.getElementById('refList')
                 for (var i = 0; i < data.length; i++) {
-                    var row = `<tr>
-                                    <td>${data[i].name}</td>
-                                    <td>${data[i].position}</td>
-                                    <td>${data[i].relationship}</td>
-                                    <td>${data[i].email}</td>
-                                </tr>`
+                    var row = "<tr><td>" + data[i].name + 
+                                "</td><td>" + data[i].position + 
+                                "</td><td>" + data[i].relationship + 
+                                "</td><td>" + data[i].email +
+                                "</td></tr>";
                     table.innerHTML += row 
                 }
             }

@@ -19,6 +19,27 @@ function nameInput() {
     alert(welcome + person + "! Thank you for visiting my site!");
 }
 
+// Favorite Activity Validation with jQuery
+    function favAct() {
+        try {
+            var actErr = "";
+            var newText = document.getElementById("activity").value;
+            if (newText === "") {
+                actErr = "Response Required!";
+            }
+            else if (newText === " ") {
+                actErr = "Come on! There must be something you like..."
+            }
+            else {
+                document.getElementById("actResp").innerHTML = newText + " sounds fun!"
+            }
+            document.getElementById('errorAct').innerHTML = actErr;
+        }
+        catch (error) {
+            document.getElementById("actResp").innerHTML = "Incorrect Input: <b>" + error + "</b>";
+        }
+    }
+
 // For Loop References
     var person = [
         {name: "Carla Pratt", position: "Business Owner", relationship: "Manager", email: "carla@prattlandmusic.com"},

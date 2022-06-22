@@ -21,7 +21,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/pages/crochet.html" target="_blank">Practice Website</a>
+                            <a class="nav-link" href="http://www.jessicafletcher.slccwebdev.com/wordpress" target="_blank">WordPress Website</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact Me</a>
@@ -37,7 +37,7 @@
                                 <li><a class="dropdown-item" href="/pages/about.html" target="_blank">References & Interests</a></li>
                             </ul>
                         </li>
-                        <button class="rounded-pill btn-outline-dark small" onclick="nameInput()">Who are you?!</button>
+                        <button class="rounded-pill btn-outline-dark small" onclick="nameInput()">Who are you?!</button> <span id="nameAlert"></span>
                     </ul>
                 </div>
             </div>
@@ -93,10 +93,10 @@
                             <div class="card-body">
                                 <h3 class="card-title">Website Development</h3>
                                 <hr class="bg-dark">
-                                <p class="card-text">A practice website geared towards selling and sharing crochet patterns.</p>
+                                <p class="card-text">A WordPress website geared towards selling and sharing crochet patterns.</p>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-outline-dark btn-lg mt-2" href="/pages/crochet.html" target="_blank">View Page</a>
+                                <a class="btn btn-outline-dark btn-lg mt-2" href="http://www.jessicafletcher.slccwebdev.com/wordpress/" target="_blank">Visit Page</a>
                             </div>
                         </div>
                     </div>
@@ -171,12 +171,14 @@
                         <form action="http://form-test.slccwebdev.com/form-success.php" method="POST">
                             <div class="form-group">
                                 <label for="name">Full Name:</label>
-                                <input class="form-control" type="text" id="name" placeholder="Full Name" name="name">
+                                <span>*</span>
+                                <input class="form-control" type="text" id="name" placeholder="Full Name" name="name" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email Address:</label>
-                                <input class="form-control" type="email" id="email" placeholder="name@example.com" name="email">
+                                <span>*</span>
+                                <input class="form-control" type="email" id="email" placeholder="name@example.com" name="email" required>
                             </div>
 
                             <div class="form-group">
@@ -347,6 +349,22 @@
                         </div>
                     </div>
                     <!-- Hobby Item5 End -->
+
+                    <!-- Form Validation with jQuery -->
+                    <div class="col mb-4">
+                        <div class="card bg-light text-center border-light shadow h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">What is your favorite activity?</h3>
+                                <hr class="bg-dark">
+                                <input type="text" id="activity">
+                                <span class="errorAct" id="errorAct">*</span>
+                                <br>
+                                <button class="rounded-pill btn-outline-dark small" id="btnAct" onclick="favAct()">Enter</button>
+                                <p id="actResp"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Form Validation with jQuery End -->
                 </div>
             </div>
         </section>

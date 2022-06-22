@@ -19,8 +19,20 @@
     margin: 1%;
 }
 
+#hobbies {
+    display: none;
+}
+
 #hobbiesList {
     list-style: none;
+}
+
+.errorAct {
+    color: rgb(255, 0, 191);
+}
+
+#btnAct {
+    margin: 1%;
 }
 
 #helpbutton {

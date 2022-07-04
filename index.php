@@ -4,6 +4,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/files/css/landingpage.css">
+        <link rel="shortcut icon" href="/images/fletchlinghelpbutton.png">
+        <title>Jessica Fletcher's Website</title>
     </head>
     <body>
         <!-- NavBar -->
@@ -23,7 +25,7 @@
                             <a class="nav-link" href="http://www.jessicafletcher.slccwebdev.com/wordpress" target="_blank">WordPress Website</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/files/php/index.php" target="_blank">PHP Page</a>
+                            <a class="nav-link" href="/files/php/practice.php" target="_blank">PHP Page</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact Me</a>

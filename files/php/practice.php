@@ -1,7 +1,7 @@
 <html>
-    <header>
+    <head>
 
-    </header>
+    </head>
     <body>
         <?php
             $greeting = "Hello World!";

@@ -1,0 +1,84 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Jessica Fletcher Portfolio</title>
+    </head>
+    <body>
+        <header>
+            <h1>Jessica<br>Fletcher</h1>
+            <nav class="header">
+                        <a href="index.php" title="Resume Home">Home</a>
+                        <a href="skills.php" title="Skills">Skills</a>
+                        <a href="portfolio.php" title="Resume Portfolio">Portfolio</a>
+                        <a href="about.php" title="About Jessica">About</a>
+            </nav>
+            <img src="../../images/headshot.jpg" alt="Headshot of Jessica Fletcher">
+        </header>
+        <article>
+            <section>
+                <h2>Website Project Portfolio</h2>
+                    <p>Click on website name to view:</p>
+                    <ul>
+                        <li class="square-style-list">
+                            <a href="http://www.jessicafletcher.slccwebdev.com/wordpress/" target="_blank">Lil Fletchlings</a>
+                        </li>
+                    </ul>
+            </section>
+            <section>
+                <h2>Crochet Project Portfolio</h2>
+                <table class="portfolio">
+                    <tr>
+                        <th>Billy Loomis</th>
+                        <th>Spider Man</th>
+                        <th>Lorenzo Zurzolo</th> 
+                    </tr>
+                    <tr>
+                        <td><img src="../../images/billyloomis.jpg" alt="Billy Loomis doll" height="200"></td>
+                        <td><img src="../../images/spiderman.jpg" alt="Spiderman doll" height="200"></td>
+                        <td><img src="../../images/lorenzozurzolo.jpg" alt="Lorenzo Zurzolo doll" height="200"></td>
+                    </tr>
+                    <tr>
+                        <th>Star Butterfly</th>
+                        <th>Marco Diaz</th>
+                        <th>Princess Pony Head</th>
+                    </tr>
+                    <tr>
+                        <td><img src="../../images/starbutterfly.jpg" alt="Star Butterfly doll" height="200"></td>
+                        <td><img src="../../images/marcodiaz.jpg" alt="Maro Diaz doll" height="200"></td>
+                        <td><img src="../../images/princessponyhead.jpg" alt="Princess Pony Head doll" height="200"></td>
+                    </tr>
+                    <tr>
+                        <th>L.O.L. Doll</th>
+                        <th>Peony Ballerina</th>
+                        <th>Miles Morales</th>
+                    </tr>
+                    <tr>
+                        <td><img src="../../images/loldoll.jpg" alt="Crochet version of a L.O.L. Doll" height="200"></td>
+                        <td><img src="../../images/peonyballerina.jpg" alt="Peony Ballerina doll" height="200"></td>
+                        <td><img src="../../images/milesmorales.jpg" alt="Miles Morales doll" height="200"></td>
+                    </tr>
+                    <tr>
+                        <th>Koala</th>
+                        <th>Green Puppy</th>
+                        <th>Minecraft Boss Chicken</th>
+                    </tr>
+                    <tr>
+                        <td><img src="../../images/koala.jpg" alt="Koala doll" height="200"></td>
+                        <td><img src="../../images/greenpuppy.jpg" alt="Green puppy doll" height="200"></td>
+                        <td><img src="../../images/minecraftbosschicken.jpg" alt="Minecraft Boss Chicken doll" height="200"></td>
+                    </tr>
+                </table>  
+            </section>
+        </article>
+        <footer>
+            <nav>
+                <a href="index.php" title="Resume Home">Home</a>
+                <a href="skills.php" title="Skills">Skills</a>
+                <a href="portfolio.php" title="Resume Portfolio">Portfolio</a>
+                <a href="about.php" title="About Jessica">About</a>
+            </nav>
+        </footer>
+    </body>
+</html>

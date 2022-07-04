@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -34,10 +33,10 @@
                             Resume
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="/files/html/index.html" target="_blank">Work & Education</a></li>
-                                <li><a class="dropdown-item" href="/files/html/skills.html" target="_blank">Skills & Competencies</a></li>
-                                <li><a class="dropdown-item" href="/files/html/portfolio.html" target="_blank">Portfolio</a></li>
-                                <li><a class="dropdown-item" href="/files/html/about.html" target="_blank">References & Interests</a></li>
+                                <li><a class="dropdown-item" href="/files/php/index.php" target="_blank">Work & Education</a></li>
+                                <li><a class="dropdown-item" href="/files/php/skills.php" target="_blank">Skills & Competencies</a></li>
+                                <li><a class="dropdown-item" href="/files/php/portfolio.php" target="_blank">Portfolio</a></li>
+                                <li><a class="dropdown-item" href="/files/php/about.php" target="_blank">References & Interests</a></li>
                             </ul>
                         </li>
                         <button class="rounded-pill btn-outline-dark small" onclick="nameInput()">Who are you?!</button> <span id="nameAlert"></span>
@@ -54,7 +53,7 @@
                          <h1 class="display-1 font-weight-bold">Jessica Fletcher</h1>
                          <hr class="bg-white my-5">
                          <p class="font-weight-light">The perfect candidate for many creative projects. If you have an idea and don't know how to accomplish it yet, you've come to the right place to see your visions become reality.</p>
-                         <a class="btn btn-dark btn-lg mt-3 rounded-pill" href="files/html/index.html" target="_blank">View Resume</a>
+                         <a class="btn btn-dark btn-lg mt-3 rounded-pill" href="files/php/index.php" target="_blank">View Resume</a>
                      </div>
                  </div>
              </div>

@@ -8,8 +8,11 @@
     background-attachment: scroll;
 }
 
-#portfolio-carousel {
-    max-height: 30vh;
+#skillsList {
+    margin-left: 38%;
+    margin-right: 41%;
+    text-align: center;
+    list-style: none;
 }
 
 #references {

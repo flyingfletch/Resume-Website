@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+    <?php    
+        $mySkills = array ("HTML", "CSS", "JavaScript", "WordPress", "PHP", "Typing", 
+            "Microsoft Office Suite", "Music Performance", "Music Education", "Crafting");
+            function newList($mySkills) {
+                echo "<ul>";
+                foreach ($mySkills as $sk) {
+                    echo "<li id='skillsList'>" . $sk . "</li>";
+                }
+                echo "</ul>";
+            }
+    ?>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -73,6 +84,12 @@
                         <h2 class="font-weight-bold">About</h2>
                         <hr class="my-5">
                         <p class="font-weight-light">Jessica has experience in many different creative mediums including: music, drawing, painting, photo editing, digital design, various fiber arts, cake decorating, and now web development. She enjoys learning as much as she can about new ways to improve her skills. If you have a vision, she will do all that she can to exceed your expectations.</p>
+                        <p>
+                            <h4>My skills include:</h4>
+                            <?php
+                                newList($mySkills);
+                            ?>
+                        </p>
                         <a class="btn btn-dark btn-lg mt-3 rounded-pill" role="button" href="#contact">Contact Me</a>
                     </div>
                 </div>
@@ -95,7 +112,7 @@
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
                             <a href="http://www.jessicafletcher.slccwebdev.com/wordpress/" target="blank">
-                                <img class="card-img-top" src="/images/fletchlinglogo.png" alt="Lil Fletchlings Logo" style="object-fit:cover; height:20em;">
+                                <img class="card-img-top" src="/images/fletchlinglogo.png" alt="Lil Fletchlings Logo" style="object-fit:cover;">
                             </a>
                             <div class="card-body">
                                 <h3 class="card-title">Website Development</h3>
@@ -121,27 +138,27 @@
                                 <div id="portfolio-carousel" class="carousel-inner">
                                     <!-- Ami Image 1 -->
                                     <div class="carousel-item active">
-                                        <img src="/images/billyloomis.jpg" class="d-block w-50 m-auto" alt="Picture of the night sky.">
+                                        <img src="/images/billy-loomis-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the night sky.">
                                     </div>
                                     <!-- Ami Image 2 -->
                                     <div class="carousel-item">
-                                        <img src="/images/loldoll.jpg" class="d-block w-50 m-auto" alt="Picture of the woods.">
+                                        <img src="/images/lol-doll-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the woods.">
                                     </div>
                                     <!-- Ami Image 3 -->
                                     <div class="carousel-item">
-                                        <img src="/images/starbutterfly.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                        <img src="/images/star-butterfly-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
                                     </div>
                                     <!-- Ami Image 4 -->
                                     <div class="carousel-item">
-                                        <img src="/images/spiderman.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                        <img src="/images/spiderman-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
                                     </div>
                                     <!-- Ami Image 5 -->
                                     <div class="carousel-item">
-                                        <img src="/images/peonyballerina.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                        <img src="/images/peony-ballerina-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
                                     </div>
                                     <!-- Ami Image 6 -->
                                     <div class="carousel-item">
-                                        <img src="/images/koala.jpg" class="d-block w-75 m-auto" alt="Picture of the morning horizon.">
+                                        <img src="/images/koala-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
                                     </div>
                                 </div>
                             </div>
@@ -169,27 +186,27 @@
                                 <div id="portfolio-carousel" class="carousel-inner">
                                     <!-- Cake Image 1 -->
                                     <div class="carousel-item active">
-                                        <img src="/images/rainbow-cake.jpg" class="d-block w-50 m-auto" alt="Picture of the night sky.">
+                                        <img src="/images/rainbow-cake-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the night sky.">
                                     </div>
                                     <!-- Cake Image 2 -->
                                     <div class="carousel-item">
-                                        <img src="/images/jet-cake.jpg" class="d-block w-50 m-auto" alt="Picture of the woods.">
+                                        <img src="/images/jet-cake-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the woods.">
                                     </div>
                                     <!-- Cake Image 3 -->
                                     <div class="carousel-item">
-                                        <img src="/images/flower-cake.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                        <img src="/images/flower-cake-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
                                     </div>
                                     <!-- Cake Image 4 -->
                                     <div class="carousel-item">
-                                        <img src="/images/cocomelon-cake.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                        <img src="/images/cocomelon-cake-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
                                     </div>
                                     <!-- Cake Image 5 -->
                                     <div class="carousel-item">
-                                        <img src="/images/lileinstein-cake.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                        <img src="/images/lil-einstein-cake-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
                                     </div>
                                     <!-- Cake Image 6 -->
                                     <div class="carousel-item">
-                                        <img src="/images/cupcakes.jpg" class="d-block w-75 m-auto" alt="Picture of the morning horizon.">
+                                        <img src="/images/cupcakes-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
                                     </div>
                                 </div>
                             </div>
@@ -214,15 +231,15 @@
                                 <div id="portfolio-carousel" class="carousel-inner">
                                     <!-- Costume Image 1 -->
                                     <div class="carousel-item active">
-                                        <img src="/images/dragoncostume.jpg" class="d-block w-50 m-auto" alt="Picture of the night sky.">
+                                        <img src="/images/dragon-costume-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the night sky.">
                                     </div>
                                     <!-- Costume Image 2 -->
                                     <div class="carousel-item">
-                                        <img src="/images/unicorn-costume.jpg" class="d-block w-50 m-auto" alt="Picture of the woods.">
+                                        <img src="/images/unicorn-costume-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the woods.">
                                     </div>
                                     <!-- Costume Image 3 -->
                                     <div class="carousel-item">
-                                        <img src="/images/pumpkin-costume.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                        <img src="/images/pumpkin-costume-thumbnail.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
                                     </div>
                                 </div>
                             </div>

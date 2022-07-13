@@ -26,7 +26,7 @@
                             <a class="nav-link" href="http://www.jessicafletcher.slccwebdev.com/wordpress" target="_blank">WordPress Website</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/files/php/practice.php" target="_blank">PHP Page</a>
+                            <a class="nav-link" href="/files/php/practice.php" target="_blank">PHP Practice</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact Me</a>

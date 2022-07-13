@@ -8,6 +8,10 @@
     background-attachment: scroll;
 }
 
+#portfolio-carousel {
+    max-height: 30vh;
+}
+
 #references {
     text-align: center;
     display: block;

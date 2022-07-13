@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -93,14 +94,13 @@
                     <!-- Portfolio Item1 -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
-                            <img class="card-img-top" src="/images/fletchlinglogo.png" alt="Lil Fletchlings Logo" style="object-fit:cover; height:20em;">
+                            <a href="http://www.jessicafletcher.slccwebdev.com/wordpress/" target="blank">
+                                <img class="card-img-top" src="/images/fletchlinglogo.png" alt="Lil Fletchlings Logo" style="object-fit:cover; height:20em;">
+                            </a>
                             <div class="card-body">
                                 <h3 class="card-title">Website Development</h3>
                                 <hr class="bg-dark">
                                 <p class="card-text">A WordPress website geared towards selling and sharing crochet patterns.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a class="btn btn-outline-dark btn-lg mt-2" href="http://www.jessicafletcher.slccwebdev.com/wordpress/" target="_blank">Visit Page</a>
                             </div>
                         </div>
                     </div>
@@ -109,14 +109,46 @@
                     <!-- Portfolio Item2 -->
                      <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
-                            <img class="card-img-top" src="/images/loldoll.jpg" alt="Crochet Doll Princess" style="object-fit:cover; height:20em;">
+                            <div id="carouselIndicators1" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators1" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators1" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators1" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                </div>
+                                <div id="portfolio-carousel" class="carousel-inner">
+                                    <!-- Ami Image 1 -->
+                                    <div class="carousel-item active">
+                                        <img src="/images/billyloomis.jpg" class="d-block w-50 m-auto" alt="Picture of the night sky.">
+                                    </div>
+                                    <!-- Ami Image 2 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/loldoll.jpg" class="d-block w-50 m-auto" alt="Picture of the woods.">
+                                    </div>
+                                    <!-- Ami Image 3 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/starbutterfly.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                    </div>
+                                    <!-- Ami Image 4 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/spiderman.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                    </div>
+                                    <!-- Ami Image 5 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/peonyballerina.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                    </div>
+                                    <!-- Ami Image 6 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/koala.jpg" class="d-block w-75 m-auto" alt="Picture of the morning horizon.">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
                                 <h3 class="card-title">Custom Amigurmi</h3>
                                 <hr class="bg-dark">
                                 <p class="card-text">Crochet dolls for your inner child.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a class="btn btn-outline-dark btn-lg mt-2" href="/images/loldoll.jpg" target="_blank">View Full Image</a>
                             </div>
                         </div>
                     </div>
@@ -125,14 +157,46 @@
                     <!-- Portfolio Item3 -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
-                            <img class="card-img-top" src="/images/unicorncake.jpg" alt="Unicorn Cake" style="object-fit:cover; height:20em;">
+                            <div id="carouselIndicators2" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators2" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators2" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                </div>
+                                <div id="portfolio-carousel" class="carousel-inner">
+                                    <!-- Cake Image 1 -->
+                                    <div class="carousel-item active">
+                                        <img src="/images/rainbow-cake.jpg" class="d-block w-50 m-auto" alt="Picture of the night sky.">
+                                    </div>
+                                    <!-- Cake Image 2 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/jet-cake.jpg" class="d-block w-50 m-auto" alt="Picture of the woods.">
+                                    </div>
+                                    <!-- Cake Image 3 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/flower-cake.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                    </div>
+                                    <!-- Cake Image 4 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/cocomelon-cake.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                    </div>
+                                    <!-- Cake Image 5 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/lileinstein-cake.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                    </div>
+                                    <!-- Cake Image 6 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/cupcakes.jpg" class="d-block w-75 m-auto" alt="Picture of the morning horizon.">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
                                 <h3 class="card-title">Cake Decorating</h3>
                                 <hr class="bg-dark">
                                 <p class="card-text">Delicious treats for special occasions.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a class="btn btn-outline-dark btn-lg mt-2" href="/images/unicorncake.jpg" target="_blank">View Full Image</a>
                             </div>
                         </div>
                     </div>
@@ -141,16 +205,34 @@
                     <!-- Portfolio Item4 -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
-                            <img class="card-img-top" src="/images/dragoncostume.jpg" alt="Unicorn Cake" style="object-fit:cover; height:20em;">
+                            <div id="carouselIndicators3" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div id="portfolio-carousel" class="carousel-inner">
+                                    <!-- Costume Image 1 -->
+                                    <div class="carousel-item active">
+                                        <img src="/images/dragoncostume.jpg" class="d-block w-50 m-auto" alt="Picture of the night sky.">
+                                    </div>
+                                    <!-- Costume Image 2 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/unicorn-costume.jpg" class="d-block w-50 m-auto" alt="Picture of the woods.">
+                                    </div>
+                                    <!-- Costume Image 3 -->
+                                    <div class="carousel-item">
+                                        <img src="/images/pumpkin-costume.jpg" class="d-block w-50 m-auto" alt="Picture of the morning horizon.">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
                                 <h3 class="card-title">Costume Making</h3>
                                 <hr class="bg-dark">
                                 <p class="card-text">Where personal identity meets with creativity.</p>
                             </div>
                                     <!-- Add #contact so the navbar doesn't cut it off -->
-                            <div class="card-footer" id="contact">
-                                <a class="btn btn-outline-dark btn-lg mt-2" href="/images/dragoncostume.jpg" target="_blank">View Full Image</a>
-                            </div>
+                            <div id="contact"></div>
                         </div>
                     </div>
                     <!-- Portfolio Item4 End -->
@@ -272,7 +354,7 @@
                     <!-- Hobby Item1 Start -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
-                            <div class="card-body">
+                            <div id="card-height" class="card-body">
                                 <h3 class="card-title">Crafting</h3>
                                 <hr class="bg-dark">
                                 <div id="hobbiesList">
@@ -291,7 +373,7 @@
                     <!-- Hobby Item2 Start -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
-                            <div class="card-body">
+                            <div id="card-height" class="card-body">
                                 <h3 class="card-title">Music</h3>
                                 <hr class="bg-dark">
                                 <div id="hobbiesList">
@@ -307,7 +389,7 @@
                     <!-- Hobby Item3 Start -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
-                            <div class="card-body">
+                            <div id="card-height" class="card-body">
                                 <h3 class="card-title">Computer & Video Games</h3>
                                 <hr class="bg-dark">
                                 <div id="hobbiesList">
@@ -324,7 +406,7 @@
                     <!-- Hobby Item4 Start -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
-                            <div class="card-body">
+                            <div id="card-height" class="card-body">
                                 <h3 class="card-title">Sports</h3>
                                 <hr class="bg-dark">
                                 <div id="hobbiesList">
@@ -340,7 +422,7 @@
                     <!-- Hobby Item5 Start -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
-                            <div class="card-body">
+                            <div id="card-height" class="card-body">
                                 <h3 class="card-title">Outdoors</h3>
                                 <hr class="bg-dark">
                                 <div id="hobbiesList">
@@ -357,7 +439,7 @@
                     <!-- Form Validation with jQuery -->
                     <div class="col mb-4">
                         <div class="card bg-light text-center border-light shadow h-100">
-                            <div class="card-body">
+                            <div id="card-height" class="card-body">
                                 <h3 class="card-title">What is your favorite activity?</h3>
                                 <hr class="bg-dark">
                                 <input type="text" id="activity">

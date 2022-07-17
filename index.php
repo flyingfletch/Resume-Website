@@ -335,7 +335,7 @@
                             <div class="form-group">
                                 <label for="email">Email address:</label>
                                 <span class="text-danger">*<?php echo $emailErr; ?></span>
-                                <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" />
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" value="<?php if (isset($email)) {echo $email;} ?>"/>
                             </div>
                             
                             <!-- Radio Button Field -->

@@ -1,16 +1,5 @@
 <!DOCTYPE html>
 <html>
-    <?php    
-        $mySkills = array ("HTML", "CSS", "JavaScript", "WordPress", "PHP", "Typing", 
-            "Microsoft Office Suite", "Music Performance", "Music Education", "Crafting");
-            function newList($mySkills) {
-                echo "<ul>";
-                foreach ($mySkills as $sk) {
-                    echo "<li id='skillsList'>" . $sk . "</li>";
-                }
-                echo "</ul>";
-            }
-    ?>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,6 +9,17 @@
         <title>Jessica Fletcher's Website</title>
     </head>
     <body>
+        <?php    
+            $mySkills = array ("HTML", "CSS", "JavaScript", "WordPress", "PHP", "Typing", 
+            "Microsoft Office Suite", "Music Performance", "Music Education", "Crafting");
+            function newList($mySkills) {
+                echo "<ul>";
+                foreach ($mySkills as $sk) {
+                    echo "<li id='skillsList'>" . $sk . "</li>";
+                }
+                echo "</ul>";
+            }
+        ?>
         <!-- NavBar -->
         <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow">
             <div class="container-fluid">
@@ -259,6 +259,55 @@
 
         <!-- Contact Section -->
                 <!-- #contact link is contained in Costume Making Card so Contact Me isn't cut off by the navbar -->
+            <!--Contact PHP Code variables and functions -->
+            <?php
+                // Set empty variables for each form field
+                $nameErr = $emailErr = $contBackErr = "";
+                $name = $email = $contBack = $comment = "";
+                $formErr = false;
+                // If statement that sets the field values to variables when the form is submitted
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    if (empty($_POST["name"])) {
+                        $nameErr = "Name is required.";
+                        $formErr = true;
+                    } else {
+                        $name = cleanInput($_POST["name"]);
+                        //Use REGEX to only accept letters and spaces
+                        if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+                            $nameErr = "Only letters and standard spaces allowed.";
+                            $formErr = true;
+                        }
+                    }
+                    
+                    if (empty($_POST["email"])) {
+                        $emailErr = "Email is required.";
+                        $formErr = true;
+                    } else {
+                        $email = cleanInput($_POST["email"]);
+                        // Check if e-mail address is formatted correctly
+                        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                            $emailErr = "Please enter a valid email address.";
+                            $formErr = true;
+                        }
+                    }
+                    
+                    if (empty($_POST["contact-back"])) {
+                        $contBackErr = "Please let us know if we can contact you back.";
+                        $formErr = true;
+                    } else {
+                        $contBack = cleanInput($_POST["contact-back"]);
+                    }
+                    
+                    $comment = cleanInput($_POST["comments"]);
+                }
+                // Clean Input filtered parameter
+                function cleanInput($data) {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+            ?>
         <section> 
             <div class="container-fluid my-5">
                 <!-- Section Title -->
@@ -271,43 +320,77 @@
                 <!-- Contact Form -->
                 <div class="row justify-content-center">
                     <div class="col-6">
-                        <form action="http://form-test.slccwebdev.com/form-success.php" method="POST">
+                        <!-- Contact Form Start -->
+					        <!-- Set action to return to this page when submitted using PHP_SELF -->
+                        <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="POST" novalidate>
+                            
+                            <!-- Name Field -->
                             <div class="form-group">
                                 <label for="name">Full Name:</label>
-                                <span>*</span>
-                                <input class="form-control" type="text" id="name" placeholder="Full Name" name="name" required>
+                                <span class="text-danger">*<?php echo $nameErr; ?></span>
+                                <input type="text" class="form-control" id="name" placeholder="Full Name" name="name" value="<?php if (isset($name)) {echo $name;} ?>"/>
                             </div>
-
+                            
+                            <!-- Email Field -->
                             <div class="form-group">
-                                <label for="email">Email Address:</label>
-                                <span>*</span>
-                                <input class="form-control" type="email" id="email" placeholder="name@example.com" name="email" required>
+                                <label for="email">Email address:</label>
+                                <span class="text-danger">*<?php echo $emailErr; ?></span>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" />
                             </div>
-
+                            
+                            <!-- Radio Button Field -->
                             <div class="form-group">
                                 <label class="control-label">Can we contact you back?</label>
-                                <div class="form-check"> 
-                                    <input class="form-check-input" type="radio" name="contact-back" id="yes" value="Yes" checked>
+                                <span class="text-danger">*<?php echo $contBackErr; ?></span>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="contact-back" id="yes" value="Yes" <?php if ((isset($contBack)) && ($contBack == "Yes")) {echo "checked";} ?> />
                                     <label class="form-check-label" for="yes">Yes</label>
                                 </div>
-
-                                <div class="form-check"> 
-                                    <input class="form-check-input" type="radio" name="contact-back" id="no" value="No">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="contact-back" id="no" value="No" <?php if ((isset($contBack)) && ($contBack == "No")) {echo "checked";} ?> />
                                     <label class="form-check-label" for="no">No</label>
                                 </div>
                             </div>
-
+                            
+                            <!-- Comments Field -->
                             <div class="form-group">
                                 <label for="comments">Comments:</label>
-                                <textarea class="form-control" id="comments" rows="3" name="comments"></textarea>
+                                <textarea id="comments" class="form-control" rows="3" name="comments"><?php if (isset($comment)) {echo $comment;} ?></textarea>
                             </div>
+                            
+                            <!-- Required Fields Note -->
+                            <div class="text-danger text-right">* Indicates required fields</div>
 
-                            <button class="btn btn-primary mb-2" type="submit" role="button">Submit</button>
+                            <!-- Submit Button -->
+                            <button class="btn btn-primary mb-2" type="submit" role="button" name="submit">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- Section that appears when the contact form is submitted  -->
+            <!-- PHP IF statement that makes the section appear -->
+	    <?php if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) { ?>
+        <section id="results" style="background-color: lightsteelblue;">
+            <div class="container py-2">
+                <div class="row">
+                    <h1>Form Entries:</h1>
+                </div>
+                <div class="row">
+                    <ul>
+                        <?php
+                            // Shows field only if not empty
+                            if ($name !== "") { echo "<li>NAME: $name </li>"; }
+                            if ($email !== "") { echo "<li>EMAIL: $email </li>"; }
+                            if ($contBack !== "") { echo "<li>CONTACT BACK: $contBack </li>"; }
+                            if ($comment !== "") { echo "<li>COMMENT: $comment </li>"; }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </section>
+	    <!-- Close the PHP IF statement-->
+	    <?php } ?>
 
         <!-- References -->
         <section> 

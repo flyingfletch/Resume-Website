@@ -322,7 +322,7 @@
                     <div class="col-6">
                         <!-- Contact Form Start -->
 					        <!-- Set action to return to this page when submitted using PHP_SELF -->
-                        <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="POST" novalidate>
+                        <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="POST" novalidate>
                             
                             <!-- Name Field -->
                             <div class="form-group">

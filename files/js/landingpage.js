@@ -19,6 +19,26 @@ function nameInput() {
     alert(welcome + person + "! Thank you for visiting my site!");
 }
 
+// For Loop References
+    var person = [
+        {name: "Carla Pratt", position: "Business Owner", relationship: "Manager", email: "carla@prattlandmusic.com"},
+        {name: "Rebekah Lindsley", position: "Voice Teacher", relationship: "Co-worker", email: "rslindsley@gmail.com"},
+        {name: "Rachel Mingorance", position: "Office Manager", relationship: "Co-worker", email: "rachelmatprattland@gmail.com"},
+        {name: "Robin Brunner", position: "Computer Science Teacher", relationship: "Co-worker", email: "rbrunner@alpinedistrict.org"}
+    ];
+    refTable(person)
+    function refTable(data){
+        var table = document.getElementById('refList')
+        for (var i = 0; i < data.length; i++) {
+            var row = "<tr><td>" + data[i].name + 
+                        "</td><td>" + data[i].position + 
+                        "</td><td>" + data[i].relationship + 
+                        "</td><td>" + data[i].email +
+                        "</td></tr>";
+            table.innerHTML += row 
+        }
+    }
+
 // Favorite Activity Validation with jQuery
     function favAct() {
         try {
@@ -37,25 +57,6 @@ function nameInput() {
         }
         catch (error) {
             document.getElementById("actResp").innerHTML = "Incorrect Input: <b>" + error + "</b>";
-        }
-    }
-
-// For Loop References
-    var person = [
-        {name: "Carla Pratt", position: "Business Owner", relationship: "Manager", email: "carla@prattlandmusic.com"},
-        {name: "Robin Brunner", position: "Computer Science Teacher", relationship: "Co-worker", email: "rbrunner@alpinedistrict.org"},
-        {name: "Barbara Nelson", position: "1st Grade Teacher", relationship: "Co-worker", email: "barbaranelson@alpinedistrict.org"}
-    ];
-    refTable(person)
-    function refTable(data){
-        var table = document.getElementById('refList')
-        for (var i = 0; i < data.length; i++) {
-            var row = "<tr><td>" + data[i].name + 
-                        "</td><td>" + data[i].position + 
-                        "</td><td>" + data[i].relationship + 
-                        "</td><td>" + data[i].email +
-                        "</td></tr>";
-            table.innerHTML += row 
         }
     }
 

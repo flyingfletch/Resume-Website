@@ -262,13 +262,14 @@
             <!--Contact PHP Code variables and functions -->
             <?php
                 // Set empty variables for each form field
-                $nameErr = $emailErr = $contBackErr = "";
-                $name = $email = $contBack = $comment = "";
+                $nameErr = $emailErr = $chocVanErr = $contBackErr = "";
+                $name = $email = $chocVan = $contBack = $comment = "";
                 $formErr = false;
+                
                 // If statement that sets the field values to variables when the form is submitted
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (empty($_POST["name"])) {
-                        $nameErr = "Name is required.";
+                        $nameErr = "Everyone has a name, so enter yours!";
                         $formErr = true;
                     } else {
                         $name = cleanInput($_POST["name"]);
@@ -280,17 +281,24 @@
                     }
                     
                     if (empty($_POST["email"])) {
-                        $emailErr = "Email is required.";
+                        $emailErr = "You shall not pass without an email entered!";
                         $formErr = true;
                     } else {
                         $email = cleanInput($_POST["email"]);
                         // Check if e-mail address is formatted correctly
                         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                            $emailErr = "Please enter a valid email address.";
+                            $emailErr = "That isn't a valid email address.";
                             $formErr = true;
                         }
                     }
                     
+                    if (empty($_POST["chocolate-vanilla"])) {
+                        $chocVanErr = "Make your choice!";
+                        $formErr = true;
+                    } else {
+                        $chocVan = cleanInput($_POST["chocolate-vanilla"]);
+                    }
+
                     if (empty($_POST["contact-back"])) {
                         $contBackErr = "Please let us know if we can contact you back.";
                         $formErr = true;
@@ -338,7 +346,21 @@
                                 <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" value="<?php if (isset($email)) {echo $email;} ?>"/>
                             </div>
                             
-                            <!-- Radio Button Field -->
+                            <!-- Chocolate or Vanilla Radio Button Field -->
+                            <div class="form-group">
+                                <label class="control-label">Chocolate or Vanilla?</label>
+                                <span class="text-danger">*<?php echo $chocVanErr; ?></span>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="chocolate-vanilla" id="chocolate" value="Delectable Chocolate wins!" <?php if ((isset($chocVan)) && ($chocVan == "Delectable Chocolate wins!")) {echo "checked";} ?> />
+                                    <label class="form-check-label" for="chocolate">Chocolate</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="chocolate-vanilla" id="vanilla" value="Basic Vanilla wins!" <?php if ((isset($contBack)) && ($contBack == "Basic Vanilla wins!")) {echo "checked";} ?> />
+                                    <label class="form-check-label" for="vanilla">Vanilla</label>
+                                </div>
+                            </div>
+
+                            <!-- Contact Back Radio Button Field -->
                             <div class="form-group">
                                 <label class="control-label">Can we contact you back?</label>
                                 <span class="text-danger">*<?php echo $contBackErr; ?></span>
@@ -371,19 +393,20 @@
         <!-- Section that appears when the contact form is submitted  -->
             <!-- PHP IF statement that makes the section appear -->
 	    <?php if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) { ?>
-        <section id="results" style="background-color: lightsteelblue;">
+        <section id="results" style="background-color: lightpink;">
             <div class="container py-2">
                 <div class="row">
-                    <h1>Form Entries:</h1>
+                    <h1>What you had to say:</h1>
                 </div>
                 <div class="row">
                     <ul>
                         <?php
                             // Shows field only if not empty
-                            if ($name !== "") { echo "<li>NAME: $name </li>"; }
-                            if ($email !== "") { echo "<li>EMAIL: $email </li>"; }
-                            if ($contBack !== "") { echo "<li>CONTACT BACK: $contBack </li>"; }
-                            if ($comment !== "") { echo "<li>COMMENT: $comment </li>"; }
+                            if ($name !== "") { echo "<li>Name: $name </li>"; }
+                            if ($email !== "") { echo "<li>Email: $email </li>"; }
+                            if ($chocVan !== "") { echo "<li>Chocolate or Vanilla: $chocVan </li>"; }
+                            if ($contBack !== "") { echo "<li>Contact Back: $contBack </li>"; }
+                            if ($comment !== "") { echo "<li>Comment: $comment </li>"; }
                         ?>
                     </ul>
                 </div>

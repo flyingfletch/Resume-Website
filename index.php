@@ -1,16 +1,135 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/files/css/landingpage.css">
-        <link rel="shortcut icon" href="/images/fletchlinghelpbutton.png">
-        <title>Jessica Fletcher's Website</title>
-    </head>
-    <body>
-        <?php    
-            $mySkills = array ("HTML", "CSS", "JavaScript", "WordPress", "PHP", "Typing", 
+    <?php 
+    // PHP Section for Contact Form
+        // Preventing form resubmission on refresh
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        // Contact PHP Code variables and functions
+        // Set empty variables for each form field
+        $fullNameErr = $emailErr = $chocVanErr = $contBackErr = "";
+        $fullName = $email = $chocVan = $contBack = $comments = "";
+        $formErr = false;
+        
+        // If statement that sets the field values to variables when the form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (empty(trim($_POST["fullName"]))) {
+                $fullNameErr = "Everyone has a name, so enter yours!";
+                $formErr = true;
+            } else {
+                $fullName = cleanInput($_POST["fullName"]);
+                //Use REGEX to only accept letters and spaces
+                if (!preg_match("/^[a-zA-Z ]*$/", $fullName)) {
+                    $fullNameErr = "Only letters and standard spaces allowed.";
+                    $formErr = true;
+                }
+            }
+            
+            if (empty($_POST["email"])) {
+                $emailErr = "You shall not pass without an email entered!";
+                $formErr = true;
+            } else {
+                $email = cleanInput($_POST["email"]);
+                // Check if e-mail address is formatted correctly
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $emailErr = "That isn't a valid email address.";
+                    $formErr = true;
+                }
+            }
+            
+            if (empty($_POST["chocolate-vanilla"])) {
+                $chocVanErr = "Make your choice!";
+                $formErr = true;
+            } else {
+                $chocVan = cleanInput($_POST["chocolate-vanilla"]);
+            }
+
+            if (empty($_POST["contact-back"])) {
+                $contBackErr = "Please let us know if we can contact you back.";
+                $formErr = true;
+            } else {
+                $contBack = cleanInput($_POST["contact-back"]);
+            }
+            
+            $comments = cleanInput($_POST["comments"]);
+        }
+        // Clean Input filtered parameter
+        function cleanInput($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        
+        // Checks the form for Errors
+        if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) { 
+            $hostname = "php-mysql-exercisedb.slccwebdev.com";
+            $username = "phpmysqlexercise";
+            $password = "mysqlexercise";
+            $databasename = "php_mysql_exercisedb";
+        
+            try {
+                // Create NEW PDO object
+                $conn = new PDO("mysql:host=$hostname;dbname=$databasename", $username, $password);
+                
+                // Set PDO error mode to exception
+                $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                
+                // Variable containing SQL command
+                $sql = "INSERT INTO jf_su22_Portfolio_Responses (
+                    FullName, 
+                    Email, 
+                    ChocolateOrVanilla,
+                    ContactBack, 
+                    Comments
+                )
+                VALUES (
+                    :fullName,
+                    :email,
+                    :chocolateOrVanilla,
+                    :contactBack,
+                    :comments
+                );";
+        
+                // Create prepared statement
+                $stmt = $conn -> prepare($sql);
+        
+                // Bind parameters to variables
+                $stmt -> bindParam(':fullName', $fullName, PDO::PARAM_STR);
+                $stmt -> bindParam(':email', $email, PDO::PARAM_STR);
+                $stmt -> bindParam(':chocolateOrVanilla', $chocVan, PDO::PARAM_STR);
+                $stmt -> bindParam(':contactBack', $contBack, PDO::PARAM_STR);
+                $stmt -> bindParam(':comments', $comments, PDO::PARAM_STR);
+        
+                // Execute SQL statement on server
+                $stmt -> execute();
+                
+                // Create thank you message
+                $_SESSION['message'] = '<p class="font-weight-bold">Thank you for your submission!</p><p class="font-weight-light">Your response has been sent.</p>';
+                
+                $_SESSION['complete'] = true;
+
+                // Redirect
+                header('Location: ' . $_SERVER['REQUEST_URI']);
+                return;
+
+            } catch (PDOException $error) {
+                
+                // Create error message
+                $_SESSION['message'] = '<p>We apologize, the form was not submitted successfully. Please try again later.</p>';
+                
+                $_SESSION['complete'] = true;
+
+                // Redirect
+                header('Location: ' . $_SERVER['REQUEST_URI']);
+                return;
+            } 
+            
+            $conn = null;
+        } 
+        
+        // PHP Section for Skills
+        $mySkills = array ("HTML", "CSS", "JavaScript", "WordPress", "PHP", "Typing", 
             "Microsoft Office Suite", "Music Performance", "Music Education", "Crafting");
             function newList($mySkills) {
                 echo "<ul>";
@@ -19,7 +138,25 @@
                 }
                 echo "</ul>";
             }
-        ?>
+    ?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- My CSS -->
+        <link rel="stylesheet" type="text/css" href="/files/css/landingpage.css">
+        <!-- Page Tab Icon -->
+        <link rel="shortcut icon" href="/images/fletchlinghelpbutton.png">
+        <!-- Page Tab Title -->
+        <title>Jessica Fletcher's Website</title>
+    </head>
+    <body>
         <!-- NavBar -->
         <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow">
             <div class="container-fluid">
@@ -259,63 +396,6 @@
 
         <!-- Contact Section -->
                 <!-- #contact link is contained in Costume Making Card so Contact Me isn't cut off by the navbar -->
-            <!--Contact PHP Code variables and functions -->
-            <?php
-                // Set empty variables for each form field
-                $nameErr = $emailErr = $chocVanErr = $contBackErr = "";
-                $name = $email = $chocVan = $contBack = $comment = "";
-                $formErr = false;
-                
-                // If statement that sets the field values to variables when the form is submitted
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    if (empty($_POST["name"])) {
-                        $nameErr = "Everyone has a name, so enter yours!";
-                        $formErr = true;
-                    } else {
-                        $name = cleanInput($_POST["name"]);
-                        //Use REGEX to only accept letters and spaces
-                        if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
-                            $nameErr = "Only letters and standard spaces allowed.";
-                            $formErr = true;
-                        }
-                    }
-                    
-                    if (empty($_POST["email"])) {
-                        $emailErr = "You shall not pass without an email entered!";
-                        $formErr = true;
-                    } else {
-                        $email = cleanInput($_POST["email"]);
-                        // Check if e-mail address is formatted correctly
-                        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                            $emailErr = "That isn't a valid email address.";
-                            $formErr = true;
-                        }
-                    }
-                    
-                    if (empty($_POST["chocolate-vanilla"])) {
-                        $chocVanErr = "Make your choice!";
-                        $formErr = true;
-                    } else {
-                        $chocVan = cleanInput($_POST["chocolate-vanilla"]);
-                    }
-
-                    if (empty($_POST["contact-back"])) {
-                        $contBackErr = "Please let us know if we can contact you back.";
-                        $formErr = true;
-                    } else {
-                        $contBack = cleanInput($_POST["contact-back"]);
-                    }
-                    
-                    $comment = cleanInput($_POST["comments"]);
-                }
-                // Clean Input filtered parameter
-                function cleanInput($data) {
-                    $data = trim($data);
-                    $data = stripslashes($data);
-                    $data = htmlspecialchars($data);
-                    return $data;
-                }
-            ?>
         <section> 
             <div class="container-fluid my-5">
                 <!-- Section Title -->
@@ -334,9 +414,9 @@
                             
                             <!-- Name Field -->
                             <div class="form-group">
-                                <label for="name">Full Name:</label>
-                                <span class="text-danger">*<?php echo $nameErr; ?></span>
-                                <input type="text" class="form-control" id="name" placeholder="Full Name" name="name" value="<?php if (isset($name)) {echo $name;} ?>"/>
+                                <label for="fullName">Full Name:</label>
+                                <span class="text-danger">*<?php echo $fullNameErr; ?></span>
+                                <input type="text" class="form-control" id="fullName" placeholder="Full Name" name="fullName" value="<?php if (isset($fullName)) {echo $fullName;} ?>"/>
                             </div>
                             
                             <!-- Email Field -->
@@ -351,11 +431,11 @@
                                 <label class="control-label">Chocolate or Vanilla?</label>
                                 <span class="text-danger">*<?php echo $chocVanErr; ?></span>
                                 <div class="form-check">
-                                    <input type="radio" class="form-check-input" name="chocolate-vanilla" id="chocolate" value="Delectable Chocolate wins!" <?php if ((isset($chocVan)) && ($chocVan == "Delectable Chocolate wins!")) {echo "checked";} ?> />
+                                    <input type="radio" class="form-check-input" name="chocolate-vanilla" id="chocolate" value="Chocolate" <?php if ((isset($chocVan)) && ($chocVan == "Chocolate")) {echo "checked";} ?> />
                                     <label class="form-check-label" for="chocolate">Chocolate</label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="radio" class="form-check-input" name="chocolate-vanilla" id="vanilla" value="Basic Vanilla wins!" <?php if ((isset($contBack)) && ($contBack == "Basic Vanilla wins!")) {echo "checked";} ?> />
+                                    <input type="radio" class="form-check-input" name="chocolate-vanilla" id="vanilla" value="Vanilla" <?php if ((isset($contBack)) && ($contBack == "Vanilla")) {echo "checked";} ?> />
                                     <label class="form-check-label" for="vanilla">Vanilla</label>
                                 </div>
                             </div>
@@ -377,7 +457,7 @@
                             <!-- Comments Field -->
                             <div class="form-group">
                                 <label for="comments">Comments:</label>
-                                <textarea id="comments" class="form-control" rows="3" name="comments"><?php if (isset($comment)) {echo $comment;} ?></textarea>
+                                <textarea id="comments" class="form-control" rows="3" name="comments"><?php if (isset($comments)) {echo $comments;} ?></textarea>
                             </div>
                             
                             <!-- Required Fields Note -->
@@ -389,31 +469,34 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Section that appears when the contact form is submitted  -->
-            <!-- PHP IF statement that makes the section appear -->
-	    <?php if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) { ?>
-        <section id="results" style="background-color: lightpink;">
-            <div class="container py-2">
-                <div class="row">
-                    <h1>What you had to say:</h1>
-                </div>
-                <div class="row">
-                    <ul>
-                        <?php
-                            // Shows field only if not empty
-                            if ($name !== "") { echo "<li>Name: $name </li>"; }
-                            if ($email !== "") { echo "<li>Email: $email </li>"; }
-                            if ($chocVan !== "") { echo "<li>Chocolate or Vanilla: $chocVan </li>"; }
-                            if ($contBack !== "") { echo "<li>Contact Back: $contBack </li>"; }
-                            if ($comment !== "") { echo "<li>Comment: $comment </li>"; }
-                        ?>
-                    </ul>
+            <!-- Contact Submission Modal -->
+            <div class="modal" id="thankYouModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="thankYouModalLabel">Thank You</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <?php 
+                                echo $_SESSION['message'];
+                            ?>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-	    <!-- Close the PHP IF statement-->
-	    <?php } ?>
+        
+            <!-- Show Contact Submission Modal -->
+            <?php 
+                if(isset($_SESSION['complete']) && $_SESSION['complete']) {
+                    echo "<script>$('#thankYouModal').modal('show');</script>";
+                    session_unset();
+                }
+            ?>
 
         <!-- References -->
         <section> 
@@ -611,8 +694,6 @@
         
         <!-- JavaScript for Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <!-- JQuery -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <!-- Personal JavaScript -->
         <script src="/files/js/landingpage.js"></script>
     

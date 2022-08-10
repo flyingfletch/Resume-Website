@@ -71,7 +71,7 @@
             try {
                 // Create NEW PDO object
                 $conn = new PDO("mysql:host=$hostname;dbname=$databasename", $username, $password);
-                
+
                 // Set PDO error mode to exception
                 $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 
@@ -105,23 +105,23 @@
                 $stmt -> execute();
                 
                 // Create thank you message
-                $_SESSION['message'] = '<p class="font-weight-bold">Thank you for your submission!</p><p class="font-weight-light">Your response has been sent.</p>';
+                $_SESSION["message"] = "<p class='font-weight-bold'>Thank you for your submission!</p><p class='font-weight-light'>Your response has been sent.</p>";
                 
                 $_SESSION['complete'] = true;
 
                 // Redirect
-                header('Location: ' . $_SERVER['REQUEST_URI']);
+                header("Location: " . $_SERVER['REQUEST_URI']);
                 return;
 
             } catch (PDOException $error) {
                 
                 // Create error message
-                $_SESSION['message'] = '<p>We apologize, the form was not submitted successfully. Please try again later.</p>';
+                $_SESSION["message"] = "<p>We apologize, the form was not submitted successfully. Please try again later.</p>";
                 
                 $_SESSION['complete'] = true;
 
                 // Redirect
-                header('Location: ' . $_SERVER['REQUEST_URI']);
+                header("Location: " . $_SERVER["REQUEST_URI"]);
                 return;
             } 
             
@@ -141,7 +141,7 @@
     ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -479,7 +479,7 @@
                         </div>
                         <div class="modal-body">
                             <?php 
-                                echo $_SESSION['message'];
+                                echo $_SESSION["message"];
                             ?>
                         </div>
                         <div class="modal-footer">

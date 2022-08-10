@@ -12,7 +12,7 @@
         $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         // Variable containing SQL command
-        $sql = "DELETE FROM jf_su22_Portfolio_Responses WHERE ContactID=10;";
+        $sql = "DROP TABLE jf_su22_Portfolio_Responses;";
 
         // Execute SQL statement on server
         $conn -> exec($sql);

@@ -1,8 +1,9 @@
 <?php
-    $hostname = "php-mysql-exercisedb.slccwebdev.com";
-    $username = "phpmysqlexercise";
-    $password = "mysqlexercise";
-    $databasename = "php_mysql_exercisedb";
+    $hostname = "blackbeard.slccwebdev.com";
+    $username = "student2022";
+    $password = "php_pirates";
+    $databasename = "php_pirates";
+    $tablename = "animalInfo";
     
     try {
         // Create NEW PDO object
@@ -12,7 +13,7 @@
         $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         // Variable containing SQL command
-        $sql = "SELECT * FROM jf_su22_Portfolio_Responses;";
+        $sql = "SELECT * FROM $tablename;";
 
         // Prepare SQL statement on server
         $stmt = $conn -> prepare($sql);
@@ -59,11 +60,11 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Full Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Chocolate or Vanilla</th>
-                                <th scope="col">Contact Back</th>
-                                <th scope="col">Comments</th>
+                                <th scope="col">Animal Name</th>
+                                <th scope="col">Animal Type</th>
+                                <th scope="col">Food Type</th>
+                                <th scope="col">Cute Baby</th>
+                                <th scope="col">Fun Facts</th>
                                 <th scope="col">Date Sent</th>
                             </tr>
                         </thead>
@@ -73,12 +74,12 @@
                                 foreach ($stmt -> fetchAll() as $row) {
                                     echo "<tr>";
                                     echo "<td>" . $row['ContactID'] . "</td>";
-                                    echo "<td>" . $row['FullName'] . "</td>";
-                                    echo "<td>" . $row['Email'] . "</td>";
-                                    echo "<td>" . $row['ChocolateOrVanilla'] . "</td>";
-                                    echo "<td>" . $row['ContactBack'] . "</td>";
-                                    echo "<td>" . $row['Comments'] . "</td>";
-                                    echo "<td>" . $row['DateSent'] . "</td>";
+                                    echo "<td>" . $row['animalName'] . "</td>";
+                                    echo "<td>" . $row['animalType'] . "</td>";
+                                    echo "<td>" . $row['foodType'] . "</td>";
+                                    echo "<td>" . $row['cuteBaby'] . "</td>";
+                                    echo "<td>" . $row['funFacts'] . "</td>";
+                                    echo "<td>" . $row['dateSent'] . "</td>";
                                     echo "</tr>";
                                 }
                             ?>
